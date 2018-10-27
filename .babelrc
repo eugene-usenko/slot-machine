@@ -1,0 +1,18 @@
+{
+    "presets": [
+        "env",
+        "stage-0"
+    ],
+    "plugins": [
+        [ "module-resolver", {
+            "root": [ "./src"],
+            "alias": {
+                "@router": "./src/router",
+                "@midleware": "./src/midleware",
+                "@data": "./src/data",
+                "@logic": "./src/logic",
+                "@utils": "./src/utils"
+            }
+        }]
+    ]
+}

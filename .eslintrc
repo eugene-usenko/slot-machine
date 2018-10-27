@@ -1,0 +1,13 @@
+{
+    "parser": "babel-eslint",
+    "rules": {
+        "strict": 0,
+        "semi": ["error", "always"],
+        "quotes": ["error", "single"],
+        "multiline-ternary": ["error", "always-multiline"]
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    }
+}

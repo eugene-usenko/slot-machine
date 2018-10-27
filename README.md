@@ -1,5 +1,7 @@
 # Description
 
+Slot machine for prototyping.
+
 # Configuration
 
 This document describes slot machine configuration file.

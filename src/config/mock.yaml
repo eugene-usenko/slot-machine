@@ -1,0 +1,94 @@
+id: 'mock'
+name: Machine for prototyping
+version: 1.0
+
+#
+# Lines are represented as two dimentional array. Number value represents 
+# line position starting from top right cornder. For example, [0,0,0] will
+# be the most top line, [2,2,2] is the most bottom(for machine with 3 rows). 
+#
+# IMPORTANT
+# Before every array must be specified dash symbol.
+lines:
+  - [0, 0, 0]
+  - [1, 1, 1]
+  - [2, 2, 2]
+  - [0, 1, 2]
+  - [2, 1, 0]
+
+#
+# Virtual reels of the machine are represented as two dimentional array. Every
+# single reel is a string, which is treated as sequance of characters. 
+# Character within a string represents stop. Two type of symbols are supported:
+#  
+#  * lower case - regular symbol
+#  * upper case - special symbol(wild, scatter, etc).
+#
+# Order of reals goes from top to bottom. On the top is very left reel, on the
+# bottom is very right.
+#
+# IMPORTANT
+# Before every array must be specified dash symbol.
+reels:
+  - 'abcabf'
+  - 'abccSf'
+  - 'abcSWf'
+
+strips:
+  a: [2, 1, 1]
+  b: [2, 1, 1]
+  c: [1, 2, 1]
+  f: [1, 1, 1]
+  S: [0, 1, 1]
+  W: [0, 0, 1]
+
+#
+# Paytable represented as an object, where key is a reels combination
+# (read from left to right) and value is actual pays for that combination. 
+# Every single combination can be 'incomplete'. For example 'aa' for 5 reels 
+# slot machine should look like 'aa***', but for simplicity '*' are not used.
+#
+# IMPORTANT
+# 'paytable' entry is an object(not array) - no dash symbol 
+# '-' is required before every item.
+#
+paytable:
+  a: [0, 5, 10]
+  b: [0, 2,  4]
+  f: [0, 0, 20]
+
+#
+# IMPORTANT
+# 'multipliers' entry is an object(not array) - no dash symbol 
+# '-' is required before every item.
+#
+multipliers:
+  '**W': 3
+  'fff': 4
+
+# IMPORTANT
+# 'minigames' entry is an object(not array) - no dash symbol 
+# '-' is required before every item.
+#
+minigames:
+  '*SS': '5-free-spins'
+  'SSS': '10-free-spins'
+  'SS*S': 'bonus-game-id'
+
+#
+# Special section which is not used in general at runtime 
+# for the gameplay. It's required only for simulation and 
+# payout calculation only.
+#
+# Every key of the object represents minigame id(from 
+# minigame sestion) and value is expected amount of 
+# coins the user may win.
+#
+# IMPORTANT
+# 'expected' entry is an object(not array) - no dash symbol 
+# '-' is required before every item.
+#
+expected:
+  '5-free-spins': 30    # expects 30 after 5 free spins
+  '10-free-spins': 60   # expects 60 after 10 free spins
+  'bonus-game-id': 123  # expect 123 after 'bonus-game-id' game
